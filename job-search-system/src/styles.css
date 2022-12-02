@@ -8,7 +8,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.text-dark{
+  color:black;
+}
 h1,
 h2,
 h3,
