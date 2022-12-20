@@ -5,7 +5,6 @@ use sprint2;
 create table if not exists user(
 username varchar(30) primary key,
 password varchar(300),
-
 is_delete bit default 0
 );
 
@@ -35,10 +34,13 @@ id int auto_increment primary key,
 name varchar(50) not null,
 gender varchar(20),
 date_of_birth date,
+id_card varchar(15),
 image text,
 phone varchar(15) not null,
 email varchar(40) not null,
 adress varchar(200) not null,
+username varchar(30),
+foreign key(username) references user(username),
 is_delete bit default 0
 );
 
@@ -52,6 +54,9 @@ name_company varchar(50) not null,
 tax_code varchar(30) not null,
 address_company varchar(100) not null,
 personnel_size varchar(30) not null,
+username varchar(30),
+foreign key(username) references user(username),
+img varchar(255),
 is_delete bit default 0
 );
 
@@ -72,6 +77,7 @@ is_delete bit default 0
 
 create table if not exists recruitment(
 id int auto_increment primary key,
+title varchar(200),
 wage varchar(50),
 experience_id int,
 foreign key(experience_id) references experience(id),
@@ -87,6 +93,7 @@ is_delete bit default 0,
 description text,
 request text,
 interest text,
+time_create datetime default now(),
 deadline date,
 employer_id int,
 foreign key(employer_id) references employer(id)

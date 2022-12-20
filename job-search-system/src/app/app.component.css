@@ -1,0 +1,15 @@
+.txt-white {
+  color: white;
+}
+.btn-tuvan{
+  border-radius: 3px;
+  border: none;
+  background: #00458A;
+  color:white;
+}
+.btn-tuvan:hover{
+  border-radius: 3px;
+  border: none;
+  background: #4EC5FF;
+  color: #222222;
+}
