@@ -23,10 +23,19 @@ export class HeadComponent implements OnInit {
   }
 
   showUsername() {
-    this.username = this.tokenService.getUser().username;
-    this.roles = this.tokenService.getUser().roles;
-    this.isCustomer = this.roles.indexOf('ROLE_CUSTOMER') !== -1;
-    this.isEmployee = this.roles.indexOf('ROLE_EMPLOYEE') !== -1;
-    this.isAdmin = this.roles.indexOf('ROLE_ADMIN') !== -1;
+    console.log(this.tokenService.getUser());
+    if (this.tokenService.getUser() != null) {
+      this.username = this.tokenService.getUser().username;
+      this.roles = this.tokenService.getUser().roles;
+      this.isCustomer = this.roles.indexOf('ROLE_CUSTOMER') !== -1;
+      this.isEmployee = this.roles.indexOf('ROLE_EMPLOYEE') !== -1;
+      this.isAdmin = this.roles.indexOf('ROLE_ADMIN') !== -1;
+    }
+
+  }
+
+  logout() {
+    this.tokenService.logOut();
+
   }
 }

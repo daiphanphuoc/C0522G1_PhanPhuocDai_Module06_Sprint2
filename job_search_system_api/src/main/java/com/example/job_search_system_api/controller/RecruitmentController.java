@@ -21,9 +21,29 @@ public class RecruitmentController {
     @Autowired
     private IRecruitmentService recruitmentService;
 
+
     @GetMapping("")
+    public ResponseEntity<Page<IRecruitmentPageDto>> searchAll(@PageableDefault Pageable pageable,
+                                                               @RequestParam String titleSearch,
+                                                               @RequestParam String nameCompany){
+        Page<IRecruitmentPageDto> recruitmentDtoPage = recruitmentService.searchRecruitment(pageable,titleSearch,nameCompany);
+        if(recruitmentDtoPage.isEmpty()){
+            return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return  new ResponseEntity<>(recruitmentDtoPage, HttpStatus.OK);
+    }
+    @GetMapping("/hot")
     public ResponseEntity<Page<IRecruitmentPageDto>> getAll(@PageableDefault Pageable pageable){
         Page<IRecruitmentPageDto> recruitmentDtoPage = recruitmentService.searchRecruitment(pageable);
+        if(recruitmentDtoPage.isEmpty()){
+            return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return  new ResponseEntity<>(recruitmentDtoPage, HttpStatus.OK);
+    }
+
+    @GetMapping("/new")
+    public ResponseEntity<Page<IRecruitmentPageDto>> getAllNew(@PageableDefault Pageable pageable){
+        Page<IRecruitmentPageDto> recruitmentDtoPage = recruitmentService.searchRecruitmentNew(pageable);
         if(recruitmentDtoPage.isEmpty()){
             return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }

@@ -21,7 +21,17 @@ public class RecruitmentService  implements IRecruitmentService {
     }
 
     @Override
+    public Page<IRecruitmentPageDto> searchRecruitmentNew(Pageable pageable) {
+        return recruitmentRepository.searchRecruitmentNew(pageable);
+    }
+
+    @Override
     public Optional<IRecruitmentDto> searchRecruitmentById(int id) {
         return recruitmentRepository.searchRecruitmentById(id);
+    }
+
+    @Override
+    public Page<IRecruitmentPageDto> searchRecruitment(Pageable pageable, String titleSearch, String nameCompany) {
+        return recruitmentRepository.searchRecruitment(pageable,titleSearch,nameCompany);
     }
 }

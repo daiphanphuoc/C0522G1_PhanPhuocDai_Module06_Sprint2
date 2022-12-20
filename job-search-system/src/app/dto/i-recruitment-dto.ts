@@ -30,5 +30,7 @@ export interface IRecruitmentDto {
   experience?: string;
 
   deadline?: string;
+  img?: string;
+  nameCompany?: string;
 
 }

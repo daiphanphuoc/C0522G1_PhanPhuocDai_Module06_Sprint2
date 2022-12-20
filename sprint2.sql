@@ -118,3 +118,23 @@ desire_minimum_wage double,
 career_goals text,
 workplace_desired text
 );
+
+create table if not exists price(
+id int auto_increment primary key,
+price double default 1,
+begin_date datetime default now(),
+end_date datetime ,
+status bit default 1,
+is_delete bit default 0
+);
+
+create table if not exists candidate_recruitment(
+id int auto_increment  primary key,
+time_recruitment datetime default now(),
+candidate_id int,
+recruitment_id int,
+foreign key (candidate_id) references candidate(id),
+foreign key (recruitment_id) references recruitment(id),
+is_delete bit default 0,
+status int default 1
+);

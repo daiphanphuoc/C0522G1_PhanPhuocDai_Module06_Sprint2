@@ -14,12 +14,22 @@ export class RecruitmentService {
   }
 
   listRecruitment(): Observable<any> {
-    const URL = environment.api_url + 'recruitment';
+    const URL = environment.api_url + 'recruitment/hot';
+    return this.httpClient.get<Array<IRecruitmentPageDto>>(URL);
+  }
+
+  listRecruitmentNew(): Observable<any> {
+    const URL = environment.api_url + 'recruitment/new';
     return this.httpClient.get<Array<IRecruitmentPageDto>>(URL);
   }
 
   detailRecruitment(id: number): Observable<any> {
     const URL = environment.api_url + 'recruitment/detail/' + id;
     return this.httpClient.get<IRecruitmentDto>(URL);
+  }
+
+  listRecruitmentSearch(titleSearch: string | null, nameCompany: string | null): Observable<any> {
+    const URL = environment.api_url + 'recruitment?titleSearch=' + titleSearch + '&nameCompany=' + nameCompany;
+    return this.httpClient.get<Array<IRecruitmentPageDto>>(URL);
   }
 }

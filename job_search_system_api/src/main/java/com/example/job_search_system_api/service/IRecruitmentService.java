@@ -10,6 +10,8 @@ import java.util.Optional;
 
 public interface IRecruitmentService {
     Page<IRecruitmentPageDto> searchRecruitment(Pageable pageable);
-
+    Page<IRecruitmentPageDto> searchRecruitmentNew(Pageable pageable);
     Optional<IRecruitmentDto> searchRecruitmentById(@Param("id") int id);
+
+    Page<IRecruitmentPageDto> searchRecruitment(Pageable pageable, String titleSearch, String nameCompany);
 }

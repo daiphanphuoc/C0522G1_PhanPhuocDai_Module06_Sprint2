@@ -76,9 +76,9 @@ export class LoginComponent implements OnInit {
           title: this.username + ' Đăng nhập thành công !',
           showConfirmButton: false,
           timer: 2000
-        });
-
-        this.router.navigateByUrl('/index');
+        }).then();
+        window.location.replace('/index');
+        // this.router.navigateByUrl('/index');
       },
       err => {
         this.authService.isLoggedIn = false;

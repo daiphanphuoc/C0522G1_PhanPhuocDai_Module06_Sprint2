@@ -14,8 +14,8 @@
       <div class="card text-success bg-primary border border-danger">
         <div class="card-body text-white">
           <h4 class="card-text">{{username}}</h4>
-          <h5 class="card-text" *ngIf="username==''">Đăng nhập</h5>
-          <h5 class="card-text"*ngIf="username!=''">Đăng xuất</h5>
+          <h5 class="card-text" *ngIf="username==''" routerLink="/login">Đăng nhập</h5>
+          <h5 class="card-text"*ngIf="username!=''" (click)="logout()">Đăng xuất</h5>
 
         </div>
       </div>

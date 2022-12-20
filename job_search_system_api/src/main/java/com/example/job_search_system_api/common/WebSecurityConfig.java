@@ -56,7 +56,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .defaultSuccessUrl("/").permitAll()
 //                .and()
                 .authorizeRequests()
-                .antMatchers("/api/recruitment", "/api/recruitment/detail/{id}", "/api/login").permitAll()
+                .antMatchers("/api/recruitment/**", "/api/recruitment/detail/{id}","/api/**", "/api/login").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**")
                 .permitAll()
 //                .antMatchers("/*/create")

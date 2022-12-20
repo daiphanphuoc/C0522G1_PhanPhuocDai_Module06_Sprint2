@@ -22,6 +22,7 @@ export class TokenStorageService {
   logOut() {
     window.sessionStorage.clear();
     window.localStorage.clear();
+    window.location.reload();
   }
 
   public saveTokenLocal(token: string) {
